@@ -28,7 +28,6 @@ renderer.setAnimationLoop(animate);
 
 // Raycaster Event Listener
 window.addEventListener("mousedown", onMouseDown);
-
 function onMouseDown(e) {
     const coords = coordinates(
         e.clientX,
