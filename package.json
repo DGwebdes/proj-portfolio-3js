@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx vite",
+    "dev": "npx vite --host 0.0.0.0",
     "build": "npx vite build"
   },
   "keywords": [],
