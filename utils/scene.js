@@ -1,7 +1,11 @@
 import * as THREE from "three";
-import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
+const MAX_DISTANCE = 10;
+const MIN_DISTANCE = 1;
+
+// Initialize Scene
 export const scene = new THREE.Scene();
+// scene.fog = new THREE.Fog( 0xff00ff, 3, 10 );
 
 // Camera Configurations
 const FOV = 75;
@@ -9,33 +13,26 @@ const width = window.innerWidth;
 const height = window.innerHeight;
 const near = 0.1;
 const far = 1000;
-// Set Camera
+// Initialize Camera
 export const camera = new THREE.PerspectiveCamera(
     FOV,
     width / height,
     near,
     far,
 );
-camera.position.z = 5;
+camera.position.z = MAX_DISTANCE;
+camera.position.y = MIN_DISTANCE;
 
-// Set Lighting
+// Initialize Lights
 const color = 0xfff;
 const intensity = 1;
 export const light = new THREE.AmbientLight(color, intensity);
+// White directional light at half intensity shining from the top.
+// const directionalLight = new THREE.DirectionalLight( color, intensity * 0.5 );
 
 // Initialize Renderer
-export const renderer = new THREE.WebGLRenderer({ antialias: true });
+export const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(width, height);
-
-// Initialize Orbit Controls and Configure it
-export const controls = new OrbitControls(camera, renderer.domElement);
-controls.minPolarAngle = 0.8;
-controls.maxPolarAngle = 1.5;
-controls.enablePan = false;
-controls.maxDistance = 9; // Magic numbers it is
-controls.minDistance = 3;
-controls.autoRotate = false;
-controls.enableDamping = true;
 
 // Initializing RayCaster and Intersections Listeners
 export const raycast = new THREE.Raycaster();

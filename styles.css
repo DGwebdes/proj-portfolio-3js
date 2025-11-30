@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    box-sizing: border-box;
+    /* overflow: scroll;  */
+
+    background: hsla(225, 67%, 4%, 0.8);
+    background: linear-gradient(90deg, hsla(225, 67%, 4%, 0.8) 0%, hsla(180, 33%, 1%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#03060f", endColorstr="#020404", GradientType=1);
+}
+
+#info {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    text-align: center;
+    z-index: 100;
+    display: block;
+    color: aliceblue;
+}

@@ -1,5 +1,6 @@
 import * as THREE from "three";
 
+
 function coordinates(nX, wX, nY, wY) {
     return new THREE.Vector2((nX / wX) * 2 - 1, -((nY / wY) * 2 - 1));
 }

@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <style>
-            body {
-                margin: 0;
-                box-sizing: border-box;
-            }
-            #info {
-                position: absolute;
-                top: 10px;
-                width: 100%;
-                text-align: center;
-                z-index: 100;
-                display: block;
-                color: aliceblue;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="info">Dielan Garve</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 
-        <script type="module" src="main.js"></script>
-    </body>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script>
+  </head>
+
+  <body>
+    <div id="info">Dielan Garve</div>
+    <main style="width: auto; padding: 20px">
+      <section>
+        Who am I? - Name - Location Based - Short Description - Socials
+      </section>
+      <section>
+        What do I do? - Experience / Focus - Stack / Languages - Additional
+        Relevant Information
+      </section>
+      <section>
+        Showcase: - Personal Projects - Hired / Freelance Projects
+      </section>
+      <section>Contact Information - Form - Socials</section>
+    </main>
+
+    <script type="module" src="main.js"></script>
+  </body>
 </html>

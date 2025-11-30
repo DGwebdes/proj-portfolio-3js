@@ -2,39 +2,40 @@ import * as THREE from "three";
 import { createMesh } from "./helpers";
 
 // Create a Plane
-const gPlane = new THREE.PlaneGeometry(30, 30);
+const gPlane = new THREE.PlaneGeometry(50, 30, 5, 5);
 const mPlane = new THREE.MeshBasicMaterial({
-    color: 0xffff00,
+    color:"#03060f",
     side: THREE.DoubleSide,
+    wireframe: true,
 });
 export const plane = new THREE.Mesh(gPlane, mPlane);
 plane.rotation.x += Math.PI / 2;
 plane.name = "plane";
 // console.log(plane);
 
-// Create a Geometry
-const gCube = new THREE.BoxGeometry(1, 1, 1);
+// Create a Cube Geometry
+const cubeGeo = new THREE.BoxGeometry(1, 1, 1);
 
 // Create Box Group
 export const boxes = new THREE.Group();
 boxes.add(
     createMesh({
-        geometry: gCube,
+        geometry: cubeGeo,
         material: new THREE.MeshBasicMaterial(),
-        position: { x: 2, y: 0, z: 2 },
+        position: { x: -5, y: 5, z: -5 },
         scale: { x: 2, y: 2, z: 3 },
         color: 0x00ff74,
-        name: "New boy",
+        name: "Box 1",
     }),
 );
 boxes.add(
     createMesh({
-        geometry: gCube,
+        geometry: cubeGeo,
         material: new THREE.MeshBasicMaterial(),
-        position: { x: 0, y: 1, z: 0 },
+        position: { x: 3, y: 1, z: 3 },
         scale: { x: 1, y: 1, z: 1 },
         color: 0xff55ff,
-        name: "olswe",
+        name: "Box 2",
     }),
 );
 
