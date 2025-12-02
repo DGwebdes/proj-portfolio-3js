@@ -1,19 +1,46 @@
+:root {
+  --color1: #03060f;
+  --color2: #020404;
+}
+html,
 body {
-    margin: 0;
-    box-sizing: border-box;
-    /* overflow: scroll;  */
-
-    background: hsla(225, 67%, 4%, 0.8);
-    background: linear-gradient(90deg, hsla(225, 67%, 4%, 0.8) 0%, hsla(180, 33%, 1%, 1) 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#03060f", endColorstr="#020404", GradientType=1);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: linear-gradient(
+    90deg,
+    hsla(225, 67%, 4%, 0.8) 0%,
+    hsla(180, 33%, 1%, 1) 100%
+  );
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
-#info {
-    position: absolute;
-    top: 10px;
-    width: 100%;
-    text-align: center;
-    z-index: 100;
-    display: block;
-    color: aliceblue;
+.container {
+  width: auto;
+  padding: 0 20px;
+  height: auto;
+}
+
+.what-i-do,
+.who-am-i {
+  background-color: aquamarine;
+
+  height: 100vh;
+}
+.contact {
+  background-color: coral;
+
+  height: 100vh;
+}
+.showcase {
+  background-color: lightgray;
+
+  height: 100vh;
 }

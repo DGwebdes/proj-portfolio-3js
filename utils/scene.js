@@ -15,10 +15,10 @@ const near = 0.1;
 const far = 1000;
 // Initialize Camera
 export const camera = new THREE.PerspectiveCamera(
-    FOV,
-    width / height,
-    near,
-    far,
+  FOV,
+  width / height,
+  near,
+  far
 );
 camera.position.z = MAX_DISTANCE;
 camera.position.y = MIN_DISTANCE;
@@ -31,7 +31,10 @@ export const light = new THREE.AmbientLight(color, intensity);
 // const directionalLight = new THREE.DirectionalLight( color, intensity * 0.5 );
 
 // Initialize Renderer
-export const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+export const renderer = new THREE.WebGLRenderer({
+  antialias: true,
+  alpha: true,
+});
 renderer.setSize(width, height);
 
 // Initializing RayCaster and Intersections Listeners
