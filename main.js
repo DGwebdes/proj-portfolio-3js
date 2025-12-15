@@ -3,25 +3,26 @@ import {
     camera,
     renderer,
     light,
+    dirLight,
     controls,
     raycast,
 } from "./utils/scene";
-import { axesHelper, boxes, plane } from "./utils/geometry";
+import { boxes, plane } from "./utils/geometry";
 import { changeColor, coordinates } from "./utils/helpers";
 
-//Prepare the Renderer
-const canvas = renderer.domElement;
+//Add canvas/Rendered to HTML body
+export const canvas = renderer.domElement;
 document.body.appendChild(canvas);
 
 // Add objects/geometry to scene
-scene.add(light, plane, axesHelper, boxes);
+scene.add(light, dirLight, plane, boxes);
+
 
 // Animate the scene
 function animate() {
-    // cube.rotation.x += 0.01;
-    // cube.rotation.y += 0.01;
-
+    //   camera.position.z += 0.01;
     controls.update();
+    
     renderer.render(scene, camera);
 }
 renderer.setAnimationLoop(animate);
@@ -33,7 +34,7 @@ function onMouseDown(e) {
         e.clientX,
         canvas.clientWidth,
         e.clientY,
-        canvas.clientHeight,
+        canvas.clientHeight
     );
 
     raycast.setFromCamera(coords, camera);
@@ -45,7 +46,7 @@ function onMouseDown(e) {
         selectInter.material.color = changeColor(
             Math.random(),
             Math.random(),
-            Math.random(),
+            Math.random()
         );
     }
 }
@@ -58,3 +59,6 @@ function onWindowResize() {
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
 }
+
+// window.addEventListener("scroll");
+

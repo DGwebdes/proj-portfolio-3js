@@ -9,38 +9,39 @@ function changeColor(r, g, b) {
 }
 
 function createMesh({
-    geometry,
-    material,
-    position = { x: 0, y: 0, z: 0 },
-    scale = { x: 0, y: 0, z: 0 },
-    color = 0xfff,
-    name = "new Mesh",
-    layer,
+  geometry,
+  material,
+  position = { x: 0, y: 0, z: 0 },
+  scale = { x: 0, y: 0, z: 0 },
+  color = 0xfff,
+  side,
+  name = "new Mesh",
+  layer,
 }) {
-    if (!geometry) throw new Error("Geometry Required!");
+  if (!geometry) throw new Error("Geometry Required!");
 
-    const passMaterial = material
-        ? material.clone()
-        : new THREE.MeshBasicMaterial();
+  const passMaterial = material
+    ? material.clone()
+    : new THREE.MeshBasicMaterial();
 
-    if (color !== undefined) {
-        passMaterial.color.set(color);
-    }
+  if (color !== undefined) passMaterial.color.set(color);
 
-    const mesh = new THREE.Mesh(geometry, passMaterial);
+  if (side !== undefined) passMaterial.side.set(side);
 
-    mesh.position.set(position.x, position.y, position.z);
-    mesh.scale.set(scale.x, scale.y, scale.z);
+  const mesh = new THREE.Mesh(geometry, passMaterial);
 
-    mesh.name = name;
-    mesh.castShadow = true;
-    mesh.receiveShadow = true;
+  mesh.position.set(position.x, position.y, position.z);
+  mesh.scale.set(scale.x, scale.y, scale.z);
 
-    if (layer !== undefined) {
-        mesh.layers.set(layer);
-    }
+  mesh.name = name;
+  mesh.castShadow = true;
+  mesh.receiveShadow = true;
 
-    return mesh;
+  if (layer !== undefined) {
+    mesh.layers.set(layer);
+  }
+
+  return mesh;
 }
 
 export { coordinates, changeColor, createMesh };
